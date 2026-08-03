@@ -11,7 +11,8 @@ class Solution:
                 return
             helper(root.left)
             helper(root.right)
-            l1.append(root.val)
+            if root!=None:
+                l1.append(root.val)
         l1=[]
         helper(root)
         return l1
