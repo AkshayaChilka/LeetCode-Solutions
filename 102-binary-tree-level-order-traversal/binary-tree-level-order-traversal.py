@@ -12,14 +12,14 @@ class Solution:
         ans=[]
         while(d):
             size=len(d)
-            l=[]
+            l1=[]
             for i in range(size):
                 node=d.popleft()
-                l.append(node.val)
+                l1.append(node.val)
                 if node.left:
                     d.append(node.left)
                 if node.right:
                     d.append(node.right)
-            ans.append(l)
+            ans.append(l1)
         return ans
         
