@@ -15,6 +15,6 @@ class Solution:
             return root
         if left:
             return left
-        else:
+        if right:
             return right
         
