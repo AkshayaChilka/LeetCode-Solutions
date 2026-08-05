@@ -19,7 +19,7 @@ class Solution:
         for i in range(len(l1)):
             if low <= l1[i] <= high:
                 ans+=l1[i]
-            i=i+1
+            
         return ans
 
 
