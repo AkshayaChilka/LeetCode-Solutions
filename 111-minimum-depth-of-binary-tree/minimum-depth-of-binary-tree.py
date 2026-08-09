@@ -15,22 +15,18 @@ class Solution:
 
         return 1 + min(self.minDepth(root.left),
                        self.minDepth(root.right))"""
-        if root is None:
+        
+
+        if not root:
             return 0
-
-        d = deque([[root,1]])
-        while d:          
-            node,depth = d.popleft()
-            if node.left==None and node.right==None:
+        queue=deque([(root,1)])
+        while queue:
+            node, depth=queue.popleft()
+            if not node.left and not node.right:
                 return depth
-
             if node.left:
-                d.append([node.left,depth+1])
-
+                queue.append((node.left,depth+1))
             if node.right:
-                d.append([node.right,depth+1])
+                queue.append((node.right,depth+1))
 
-            depth += 1
-
-        return (depth)
         
