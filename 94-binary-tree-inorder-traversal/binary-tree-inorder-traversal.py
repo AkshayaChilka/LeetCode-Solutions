@@ -16,17 +16,17 @@ class Solution:
         l1=[]
         helper(root)
         return l1"""
-        st=[]
+        stack=[]
+        result=[]
         curr=root
-        ans=[]
-        while(curr!=None or st!=[]):
-            while(curr!=None):
-                st.append(curr)
+        while curr or stack:
+            while curr:
+                stack.append(curr)
                 curr=curr.left
-            node=st.pop()
-            ans.append(node.val)
-            curr=node.right
-        return ans
+            curr=stack.pop()
+            result.append(curr.val)
+            curr=curr.right
+        return result
 
 
 
