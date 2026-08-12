@@ -12,14 +12,23 @@ class Solution:
                 st.append(int(op))
         return sum(st)"""
 
-        st=[]
+        st = []
+        total = 0  # running sum
+
         for op in operations:
             if op == "C":
-                st.pop()
+                total -= st.pop()
             elif op == "D":
-                st.append(2 * st[-1])
+                val = 2 * st[-1]
+                st.append(val)
+                total += val
             elif op == "+":
-                st.append(st[-1] + st[-2])
+                val = st[-1] + st[-2]
+                st.append(val)
+                total += val
             else:
-                st.append(int(op))
-        return sum(st)
+                val = int(op)
+                st.append(val)
+                total += val
+
+        return total
