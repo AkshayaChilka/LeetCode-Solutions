@@ -6,14 +6,21 @@
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        def helper(root):
-            if root==None:
+        self.diameter = 0
+
+        def depth(node):
+            if not node:
                 return 0
-            left=helper(root.left)
-            right=helper(root.right)
-            l1[0]=max(l1[0],left+right)
-            return 1+max(left,right)
-        l1=[float('-inf')]
-        helper(root)
-        return l1[0]
+            # compute depth of left and right subtrees
+            left = depth(node.left)
+            right = depth(node.right)
+
+            # update diameter: longest path through this node
+            self.diameter = max(self.diameter, left + right)
+
+            # return height of this subtree
+            return 1 + max(left, right)
+
+        depth(root)
+        return self.diameter
         
