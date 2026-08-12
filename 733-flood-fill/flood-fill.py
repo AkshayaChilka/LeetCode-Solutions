@@ -1,18 +1,16 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        def dfs(i,j):
-            if i<0 or j<0 or i>=r or j>=c or image[i][j]!=org:
-                return
-            image[i][j]=color
-            dfs(i-1,j)
-            dfs(i+1,j)
-            dfs(i,j+1)
-            dfs(i,j-1)
-        r=len(image)
-        c=len(image[0])
-        org=image[sr][sc]
-        if image[sr][sc]==color:
+        start_color=image[sr][sc]
+        if start_color==color:
             return image
-        dfs(sr,sc)        
+        def dfs(r,c):
+            if (r<0 or r>=len(image) or c<0 or c>=len(image[0]) or image[r][c]!=start_color):
+                return
+            image[r][c]=color
+            dfs(r+1,c)
+            dfs(r-1,c)
+            dfs(r,c+1)
+            dfs(r,c-1)
+
+        dfs(sr,sc)
         return image
-        
