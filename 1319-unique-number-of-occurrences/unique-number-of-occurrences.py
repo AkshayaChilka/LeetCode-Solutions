@@ -5,7 +5,7 @@ class Solution:
             hashmap[num]=hashmap.get(num,0)+1
         return len(hashmap.values())==len(set(hashmap.values()))"""
 
-        from collections import Counter
+        #from collections import Counter
         
         # Step 1: Count occurrences
         freq = Counter(arr)
