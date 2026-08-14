@@ -1,0 +1,9 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        k = 0  # pointer for valid elements
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]  # move valid element forward
+                k += 1
+        return k
+        
