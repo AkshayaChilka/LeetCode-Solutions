@@ -14,7 +14,7 @@ class Solution:
         return left"""
 
 
-        def binarySearch(left,right):
+        """def binarySearch(left,right):
             if left>right:
                 return left
             mid=(left+right)//2
@@ -24,6 +24,8 @@ class Solution:
                 return binarySearch(mid+1,right)
             else:
                 return binarySearch(left,mid-1) 
-        return binarySearch(0,len(nums)-1)
+        return binarySearch(0,len(nums)-1)"""
+
+        return bisect.bisect_left(nums, target)
 
         
